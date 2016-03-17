@@ -5,6 +5,13 @@ function Journal (location, year, buddyFirst, buddyLast, notes) {
   this.travelBuddyFirst = buddyFirst;
   this.travelBuddyLast = buddyLast;
   this.notes = notes;
+  this.landmarks = [];
+}
+
+function landmark (name, location, activity) {
+  this.landmarkName = name;
+  this.landmarkLocation = location;
+  this.landmarkActivity = activity;
 }
 
 Journal.prototype.fullname = function() {
@@ -12,6 +19,25 @@ Journal.prototype.fullname = function() {
 }
 
 $(document).ready(function() {
+  $("#add-landmark").click(function() {
+    $("#new-landmarks").append('<div class="new-landmark">' +
+                                  '<div class="form-group">' +
+                                    '<label for="new-landmark">Landmark:</label>' +
+                                    '<input type="text" class="form-control" id="new-landmark">' +
+                                  '</div>'
+                                  '<div class="form-group">' +
+                                    '<label for="new-landmark-location">Landmark Location:</label>' +
+                                    '<input type="text" class="form-control" id="new-landmark-location">' +
+                                  '</div>'
+                                  '<div class="form-group">' +
+                                    '<label for="new-landmark-activity">Landmark Activity:</label>' +
+                                    '<input type="text" class="form-control" id="new-landmark-activity">' +
+                                  '</div>');
+  });
+
+
+
+
   $("form#new-place").submit(function(event) {
     event.preventDefault();
 
