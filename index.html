@@ -33,7 +33,7 @@
               <input type="text" class="form-control" id="new-notes">
             </div>
 
-            <div id="new-landmarks">
+            <!-- <div id="new-landmarks">
               <div class="form-group">
                 <label for="new-landmark">Landmark:</label>
                 <input type="text" class="form-control" id="new-landmark">
@@ -46,15 +46,32 @@
                 <label for="new-landmark-activity">Landmark Activity:</label>
                 <input type="text" class="form-control" id="new-landmark-activity">
               </div>
-            </div>
-
-            <span class="btn btn-primary" id="add-landmark">Add another landmark</span>
-            <button type="submit" class="btn">Add to Journal</button>
+            </div> -->
+<!--
+            <span class="btn btn-primary" id="add-landmark">Add another landmark</span> -->
+            <button type="submit" class="btn btn-success">Add to Journal</button>
 
           </form>
+          <h2>Journal Entries</h2>
+          <ul id="entries">
+
+          </ul>
+
         </div>
         <!-- second column expanded responses -->
         <div class="col-md-6">
+          <div id="show-journal">
+            <h2></h2>
+
+            <p>Location: <span class="location"><span></p>
+            <p>Year Visited: <span class="year-visited"><span></p>
+            <p>Travel Buddy: <span class="travel-buddy"><span></p>
+            <p>Notes: <span class="notes"><span></p>
+            <!-- <p>Landmarks:</p>
+            <ul id="landmarks">
+            </ul> -->
+
+          </div>
         </div>
       </div>
     </div>
