@@ -1,9 +1,14 @@
 //business logic
-function Journal (location, year, buddy, notes) {
+function Journal (location, year, buddyFirst, buddyLast, notes) {
   this.location = location;
   this.yearVisited = year;
-  this.travelBuddy = buddy;
+  this.travelBuddyFirst = buddyFirst;
+  this.travelBuddyLast = buddyLast;
   this.notes = notes;
+}
+
+Journal.prototype.fullname = function() {
+  return this.travelBuddyFirst + " " + this.travelBuddyLast;
 }
 
 $(document).ready(function() {
@@ -12,12 +17,11 @@ $(document).ready(function() {
 
     var inputtedLocation = $("input#new-location").val();
     var inputtedYear = $("input#new-year").val();
-    var inputtedBuddy = $("input#new-buddy").val();
+    var inputtedBuddyFirst = $("input#new-buddy-first").val();
+    var inputtedBuddyLast = $("input#new-buddy-last").val();
     var inputtedNotes = $("input#new-notes").val();
 
-    var newJournalEntry = new Journal(inputtedLocation, inputtedYear, inputtedBuddy, inputtedNotes);
-
-    // var newJournalEntry = new Journal(inputtedLocation, inputtedYear);
+    var newJournalEntry = new Journal(inputtedLocation, inputtedYear, inputtedBuddyFirst, inputtedBuddyLast, inputtedNotes);
 
     $("ul#entries").append("<li><span class='entry'>" + newJournalEntry.location + "</span></li>");
 
@@ -26,13 +30,15 @@ $(document).ready(function() {
       $("#show-journal h2").text(newJournalEntry.location);
       $(".location").text(newJournalEntry.location);
       $(".year-visited").text(newJournalEntry.yearVisited);
-      $(".travel-buddy").text(newJournalEntry.travelBuddy);
+      $(".travel-buddy").text(newJournalEntry.fullname());
+      // $(".travel-buddy-last").text(newJournalEntry.travelBuddyLast);
       $(".notes").text(newJournalEntry.notes);
     });
 
     $("input#new-location").val("");
     $("input#new-year").val("");
-    $("input#new-buddy").val("");
+    $("input#new-buddy-first").val("");
+    $("input#new-buddy-last").val("");
     $("input#new-notes").val("");
 
   });
